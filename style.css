@@ -6,11 +6,16 @@
     box-sizing: border-box;
     
 }
+html{
+    height: 100%;
+}
 body{
     background-color: #F3F5FC;
     font-family: "Inter", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
-
 header{
     height: 96px;
     display: flex;
@@ -20,8 +25,11 @@ header{
 main{
     display: flex;
     flex-direction: column;
-    padding: 40px 16px;
+    padding: 40px 16px; /*padding: 40px*/
     gap: 64px;
+    width: 100%;
+    height: auto;
+    flex: 1 0 auto;
 }
 
 .first-section{
@@ -83,6 +91,7 @@ main{
     flex-direction: column;
     gap: 16px;
     text-align: center;
+    justify-content: center;
 }
 
 .error-title{
@@ -95,10 +104,11 @@ main{
     font-size: 16px;
     color: #495057; 
 }
-
+.error-image{
+    display: none;
+}
 .third-section{
-    background-color: #fff;
-    width: 100%;
+    background-color: #66bd3e;
     color: #495057;
     font-size: 32px;
     border-radius: 32px;
@@ -109,7 +119,6 @@ main{
 }
 
 .texto-encriptado{
-    max-width: 100%;
     font-size: 32px;
     overflow-wrap: break-word;
 }
@@ -134,6 +143,26 @@ main{
 @media screen and (min-width: 1024px){
     main{
         flex-direction: row;
+        justify-content: center;
+        padding: 40px;       
+    }
+    .first-section{
+        width: 680px;
+        justify-content: space-between;
+        padding: 32px;
+
+    }
+    .third-section{
+        justify-content: space-between;
+        width: 400px;
+        min-height: 100px;
+    }
+    .text{
+        min-height: auto;
+        flex: 1 0 auto;
+    }
+    .error-image{
+        display: block;
     }
 }
 
