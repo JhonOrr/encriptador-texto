@@ -5,12 +5,43 @@ const desencriptarButton = document.querySelector('.boton-desencriptar');
 const placeholder = document.querySelector('#placeholder');
 const secondSection = document.querySelector('.second-section');
 const thirdSection = document.querySelector('.third-section');
+const copyButton = document.querySelector('.boton-copiar') 
 
 
 
 texto.addEventListener('focus', limpiarTexto);
 encriptarButton.addEventListener('click', mostrarTextoEncriptado);
 desencriptarButton.addEventListener('click', mostrarTextoDesencriptado);
+
+texto.addEventListener('input', ()=>{
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const cursorPosition = range.startOffset;
+
+    const newText = texto.textContent.toLowerCase().replace(/[^a-z\s]/g, '');
+
+    texto.textContent = newText;
+
+    const newRange = document.createRange();
+    newRange.setStart(texto.firstChild, Math.min(cursorPosition, newText.length));
+    newRange.collapse(true);
+
+    selection.removeAllRanges();
+    selection.addRange(newRange);
+})
+copyButton.addEventListener('click', copiarTexto);
+function copiarTexto(){    
+    // Copia el texto al portapapeles
+    try {
+        navigator.clipboard.writeText(textoEncriptado.innerText);
+        alert('Texto copiado al portapapeles!');
+    } catch (err) {
+        alert('Error al copiar el texto.');
+    }
+    
+    // Limpia la selección
+    selection.removeAllRanges();
+}
 
 
 function mostrarTextoEncriptado(){
