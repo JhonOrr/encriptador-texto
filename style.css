@@ -92,6 +92,8 @@ main{
     gap: 16px;
     text-align: center;
     justify-content: center;
+    align-items: center;
+    display: none;
 }
 
 .error-title{
@@ -108,7 +110,6 @@ main{
     display: none;
 }
 .third-section{
-    background-color: #66bd3e;
     color: #495057;
     font-size: 32px;
     border-radius: 32px;
@@ -155,7 +156,7 @@ main{
     .third-section{
         justify-content: space-between;
         width: 400px;
-        min-height: 100px;
+        min-height: auto;   
     }
     .text{
         min-height: auto;
@@ -163,6 +164,7 @@ main{
     }
     .error-image{
         display: block;
+        width: 336px;
     }
 }
 
